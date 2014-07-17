@@ -1,0 +1,12 @@
+Temp/
+Library/
+Obj/
+ProjectSettings/
+     
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.userprefs
+*.DS_store
+*.pidb
