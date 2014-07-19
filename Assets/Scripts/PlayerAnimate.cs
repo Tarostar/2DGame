@@ -15,12 +15,12 @@ public class PlayerAnimate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey ("a") || Input.GetKey ("d") && !bMoving)
+		if ((Input.GetKey ("a") || Input.GetKey ("d")) && !bMoving)
 		{
 			bMoving = true;
 			animateTexture.rowNumber = 1;
 		}
-		else if (bMoving)
+		else if (!Input.GetKey ("a") && !Input.GetKey ("d") && bMoving)
 		{
 			bMoving = false;
 			animateTexture.rowNumber = 0;
