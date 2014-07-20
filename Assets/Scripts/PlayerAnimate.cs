@@ -9,9 +9,9 @@ public class PlayerAnimate : MonoBehaviour {
 	private ePlayerDir eMoving = ePlayerDir.stationary;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		animateTexture = gameObject.GetComponent<AnimatedTextureExtendedUV>();
-		//control = GameObject.Find("GameControl").GetComponent<GameControlScript>();
 	}
 	
 	// Update is called once per frame

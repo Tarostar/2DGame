@@ -15,9 +15,12 @@ public class PlayerRespawn : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Destroy (other.gameObject);
+		if (other.tag == "Player")
+		{
+			Destroy (other.gameObject);
 
-		CreateNewPlayer();
+			CreateNewPlayer();
+		}
 	}
 
 	private void CreateNewPlayer()
