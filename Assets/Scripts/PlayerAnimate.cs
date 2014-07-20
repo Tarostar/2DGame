@@ -5,7 +5,8 @@ public class PlayerAnimate : MonoBehaviour {
 
 	private AnimatedTextureExtendedUV animateTexture;
 
-	private bool bMoving = false;
+	enum ePlayerDir {stationary = 0, left, right, up, down};
+	private ePlayerDir eMoving = ePlayerDir.stationary;
 
 	// Use this for initialization
 	void Start () {
@@ -15,14 +16,24 @@ public class PlayerAnimate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Input.GetKey ("a") || Input.GetKey ("d")) && !bMoving)
+		if (Input.GetKey ("a") && eMoving != ePlayerDir.left)
 		{
-			bMoving = true;
+			eMoving = ePlayerDir.left;
 			animateTexture.rowNumber = 1;
 		}
-		else if (!Input.GetKey ("a") && !Input.GetKey ("d") && bMoving)
+		else if (Input.GetKey ("d") && eMoving != ePlayerDir.right)
 		{
-			bMoving = false;
+			eMoving = ePlayerDir.right;
+			animateTexture.rowNumber = 2;
+		}
+		else if (Input.GetKey ("w") && eMoving != ePlayerDir.up)
+		{
+			eMoving = ePlayerDir.up;
+			animateTexture.rowNumber = 3;
+		}
+		else if (!Input.GetKey ("a") && !Input.GetKey ("d") && eMoving != ePlayerDir.stationary)
+		{
+			eMoving = ePlayerDir.stationary;
 			animateTexture.rowNumber = 0;
 		}
 	}
