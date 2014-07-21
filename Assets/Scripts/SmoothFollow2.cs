@@ -12,6 +12,9 @@ public class SmoothFollow2 : MonoBehaviour {
 	public bool lockRotation = false;
 	
 	void Update () {
+		if (target == null)
+			return; // do nothing
+
 		Vector3 wantedPosition;
 		if (followBehind)
 			wantedPosition = target.TransformPoint(0, height, -distance);

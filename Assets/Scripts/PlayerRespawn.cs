@@ -9,6 +9,26 @@ public class PlayerRespawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		float x = PlayerPrefs.GetFloat ("spawnX");
+		float y = PlayerPrefs.GetFloat ("spawnY");
+		float z = PlayerPrefs.GetFloat ("spawnZ");
+
+		// check if we have a stored spawn point
+		if (Application.loadedLevelName == PlayerPrefs.GetString("Level") &&
+		    (x != 0 || y != 0 || z != 0))
+		{
+			// set spawn point
+			m_spawnPoint.position = new Vector3(x, y, z);
+		}
+		else if (Application.loadedLevelName == "2DGame" &&
+		         PlayerPrefs.GetString("Level") == "SecretLab")
+		{
+			// respawn at door
+			GameObject target = GameObject.Find("FutureDoor");
+			m_spawnPoint.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
+
+		}
+
 		// instantiate first player
 		CreateNewPlayer();
 	}

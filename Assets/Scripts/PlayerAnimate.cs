@@ -16,22 +16,25 @@ public class PlayerAnimate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey ("a") && eMoving != ePlayerDir.left)
+		if ((Input.GetKey ("a") || Input.GetKey("left")) && eMoving != ePlayerDir.left)
 		{
 			eMoving = ePlayerDir.left;
 			animateTexture.rowNumber = 1;
 		}
-		else if (Input.GetKey ("d") && eMoving != ePlayerDir.right)
+		else if ((Input.GetKey ("d") || Input.GetKey("right")) && eMoving != ePlayerDir.right)
 		{
 			eMoving = ePlayerDir.right;
 			animateTexture.rowNumber = 2;
 		}
-		else if (Input.GetKey ("w") && eMoving != ePlayerDir.up)
+		else if ((Input.GetKey ("w") || Input.GetKey("up")) && eMoving != ePlayerDir.up)
 		{
 			eMoving = ePlayerDir.up;
 			animateTexture.rowNumber = 3;
 		}
-		else if (!Input.GetKey ("a") && !Input.GetKey ("d") && eMoving != ePlayerDir.stationary)
+		else if (!Input.GetKey ("a") &&  !Input.GetKey("left") &&
+		         !Input.GetKey ("d") && !Input.GetKey("right") &&
+		         !Input.GetKey ("w") && !Input.GetKey("up") &&
+		         eMoving != ePlayerDir.stationary)
 		{
 			eMoving = ePlayerDir.stationary;
 			animateTexture.rowNumber = 0;
