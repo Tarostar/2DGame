@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
-
-	public GameObject m_player;
-	public Transform m_spawnPoint;
+public class Enemy : MonoBehaviour 
+{
 	public bool m_bStomp = false;
 
 	// Use this for initialization
@@ -21,7 +19,8 @@ public class Enemy : MonoBehaviour {
 	
 	private void CreateNewPlayer()
 	{
-		GameObject newPlayer = Instantiate(m_player, m_spawnPoint.position, Quaternion.identity) as GameObject;
+		Transform spawnPoint = GameObject.FindWithTag("Respawn").transform;
+		GameObject newPlayer = Instantiate(Resources.Load("Player"), spawnPoint.position, Quaternion.identity) as GameObject;
 		if (newPlayer == null)
 		{
 			// TODO: better error handling

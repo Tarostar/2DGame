@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerRespawn : MonoBehaviour {
-
-	public GameObject m_player;
+public class PlayerRespawn : MonoBehaviour 
+{
 	public Transform m_spawnPoint;
 
 	// Use this for initialization
@@ -45,7 +44,7 @@ public class PlayerRespawn : MonoBehaviour {
 
 	private void CreateNewPlayer()
 	{
-		GameObject newPlayer = Instantiate(m_player, m_spawnPoint.position, Quaternion.identity) as GameObject;
+		GameObject newPlayer = Instantiate(Resources.Load("Player"), m_spawnPoint.position, Quaternion.identity) as GameObject;
 		if (newPlayer == null)
 		{
 			// TODO: better error handling
