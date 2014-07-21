@@ -10,8 +10,9 @@ public class Enemy : MonoBehaviour
 	{
 		if (!m_bStomp && other.tag == "Player")
 		{
-			// GameObject.FindWithTag("MainCamera")
 			Destroy (other.gameObject);
+
+			audio.Play();
 			
 			CreateNewPlayer();
 		}

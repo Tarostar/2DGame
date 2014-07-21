@@ -8,6 +8,7 @@ public class Stomp : MonoBehaviour {
 	{
 		if (other.tag == "Player")
 		{
+			audio.Play();
 			transform.parent.gameObject.GetComponent<Enemy>().m_bStomp = true;
 		}
 	}

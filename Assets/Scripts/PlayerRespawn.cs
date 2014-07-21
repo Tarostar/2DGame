@@ -36,6 +36,8 @@ public class PlayerRespawn : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
+			audio.Play();
+
 			Destroy (other.gameObject);
 
 			CreateNewPlayer();
