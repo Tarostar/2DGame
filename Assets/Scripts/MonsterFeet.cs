@@ -16,8 +16,8 @@ public class MonsterFeet : MonoBehaviour
 	public bool m_bAllowDiagonal = false;
 
 	// tracks movement direction per axes
-	private bool m_bReverseX = false;
-	private bool m_bReverseY = false;
+	private bool m_bReverseX = true;
+	private bool m_bReverseY = true;
 
 	// step size
 	public float m_stepX = 0;
@@ -88,17 +88,17 @@ public class MonsterFeet : MonoBehaviour
 		if (m_direction == eDirection.dirHorizontal || m_direction == eDirection.dirDiagnoal)
 		{
 			if (transform.position.x >= m_stopPositionX)
-				m_bReverseX = false;
-			else if (transform.position.x <= m_startPositionX)
 				m_bReverseX = true;
+			else if (transform.position.x <= m_startPositionX)
+				m_bReverseX = false;
 		}
 
 		if (m_direction == eDirection.dirVertical || m_direction == eDirection.dirDiagnoal)
 		{
 			if (transform.position.y >= m_stopPositionY)
-				m_bReverseY = false;
-			else if (transform.position.y <= m_startPositionY)
 				m_bReverseY = true;
+			else if (transform.position.y <= m_startPositionY)
+				m_bReverseY = false;
 		}
 
 		// monster movement

@@ -38,8 +38,8 @@ public class Enemy : MonoBehaviour
 	void Update () {
 		if (m_bStomp)
 		{
-			transform.Translate(0, 4.0f, 1.0f);
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z / 2);
+			transform.Translate(0, -1.0f, 1.0f);
+			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
 			// stop movement
 			gameObject.GetComponent<MonsterFeet>().Kill ();
 			m_bStomp = false;
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 		// accelerate
 		for (float speed = 0.02f; speed < 2.0f; speed *= 1.2f)
 		{
-			transform.Translate(0, 0, speed);
+			transform.Translate(0, -speed, 0);
 			yield return new WaitForSeconds(.1f);
 		}
 

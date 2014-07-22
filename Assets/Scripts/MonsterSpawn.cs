@@ -40,7 +40,7 @@ public class MonsterSpawn : MonoBehaviour {
 		Vector3 pos = new Vector3(x, obj.transform.position.y + 1.0f, 0);
 
 		// instantiate prefab monster object - rotate to get sprite correct
-		GameObject monster = Instantiate(Resources.Load("Monster"), pos, Quaternion.Euler(new Vector3(90.0f, 180.0f, 0.0f))) as GameObject;
+		GameObject monster = Instantiate(Resources.Load("Monster"), pos, Quaternion.identity) as GameObject;
 
 		// get movement script and set step and stop position
 		MonsterFeet mFeet = monster.GetComponent<MonsterFeet>();
