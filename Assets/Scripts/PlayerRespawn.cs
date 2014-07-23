@@ -52,7 +52,7 @@ public class PlayerRespawn : MonoBehaviour
 
 	private void CreateNewPlayer()
 	{
-		GameObject newPlayer = Instantiate(Resources.Load("Player"), m_spawnPoint.position, Quaternion.identity) as GameObject;
+		GameObject newPlayer = Instantiate(Resources.Load("Spaceman"), m_spawnPoint.position, Quaternion.identity) as GameObject;
 		if (newPlayer == null)
 		{
 			// TODO: better error handling

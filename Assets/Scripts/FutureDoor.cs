@@ -7,33 +7,37 @@ public class FutureDoor : MonoBehaviour {
 	public string nextLevel;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		print ("start");
 		openDoor.renderer.enabled = false;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player")
-		{
-			audio.Play();
-			openDoor.renderer.enabled = true;
-		}
+		print ("trigger enter");
+
+		audio.Play();
+		openDoor.renderer.enabled = true;
 	}
 
-	void OnTriggerExit(Collider other)
+	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.tag == "Player")
-		{
-			audio.Play();
-			openDoor.renderer.enabled = false;
-		}
+		audio.Play();
+		openDoor.renderer.enabled = false;
 	}
 
-	void OnTriggerStay(Collider other)
+	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.tag == "Player" && (Input.GetKeyDown("up") || Input.GetKeyDown("w")))
+		if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
 		{
 			Application.LoadLevel(nextLevel);
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		print ("OnCollision");
+	}
+
 }

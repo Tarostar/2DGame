@@ -7,9 +7,16 @@ public class WarpEffect : MonoBehaviour {
 
 	private int effectDuration = 3;
 
-	// Use this for initialization
-	void OnTriggerEnter () 
+
+	void OnCollisionEnter2D(Collision2D other)
 	{
+		print ("OnCollision");
+	}
+
+	// Use this for initialization
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		print("bam");
 		// create funny camera effect by removing lock and remembering in player prefs
 
 		// freeze player
