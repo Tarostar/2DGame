@@ -10,8 +10,6 @@ public class WarpEffect : MonoBehaviour {
 	// stop multiple triggers happening (possibly due to new 2D controller having 2 colliders...)
 	bool bExited = true;
 
-	int nCount = 0;
-
 	void OnTriggerExit2D(Collider2D other) 
 	{
 		bExited = true;
@@ -25,9 +23,6 @@ public class WarpEffect : MonoBehaviour {
 		bExited = false;
 
 		// IMPORTANT: note if animator is in same object as collider for player then this will keep triggering
-
-		nCount++;
-		print ("triggered" + nCount);
 
 		// create funny camera effect by removing lock and remembering in player prefs
 

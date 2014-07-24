@@ -9,7 +9,6 @@ public class Checkpoint : MonoBehaviour {
 	{
 		if (other.tag == "Player")
 		{
-			print ("spawnPoint set");
 			// set new spawnpoint
 			spawnPoint.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 			// store spawn point between game sessions and levels

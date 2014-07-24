@@ -24,7 +24,5 @@ public class RollGround : MonoBehaviour {
 
 		// Move the ground
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, 0.0f);
-
-		print ("roll : " + move);
 	}
 }

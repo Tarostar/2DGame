@@ -7,10 +7,11 @@ public class Platformer2DUserControl : MonoBehaviour
     private bool jump;
 
 	public RollGround rollGround;
-
+	private Transform originalParent;
 
 	void Awake()
 	{
+		originalParent = this.transform.parent as Transform;
 		character = GetComponent<PlatformerCharacter2D>();
 
 
@@ -47,5 +48,23 @@ public class Platformer2DUserControl : MonoBehaviour
 
         // Reset the jump input once it has been used.
 	    jump = false;
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{		
+		if (other.gameObject.tag == "Platform" && this.gameObject.tag == "Player")
+		{
+			this.transform.parent = other.gameObject.transform;
+			
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D other)
+	{		
+		if (other.gameObject.tag == "Platform" && this.gameObject.tag == "Player")
+		{
+			this.transform.parent = originalParent;
+			
+		}
 	}
 }
