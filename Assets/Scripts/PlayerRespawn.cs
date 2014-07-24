@@ -38,10 +38,12 @@ public class PlayerRespawn : MonoBehaviour
 		CreateNewPlayer();
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
+		print ("death");
 		if (other.tag == "Player")
 		{
+			print ("player death");
 			audio.Play();
 
 			Destroy (other.gameObject);

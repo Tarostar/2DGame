@@ -3,24 +3,40 @@ using System.Collections;
 
 public class WarpEffect : MonoBehaviour {
 
-	private CharacterMotor characterMotor = null;
+	private PlatformerCharacter2D characterMotor = null;
 
 	private int effectDuration = 3;
 
+	// stop multiple triggers happening (possibly due to new 2D controller having 2 colliders...)
+	bool bExited = true;
 
-	void OnCollisionEnter2D(Collision2D other)
+	int nCount = 0;
+
+	void OnTriggerExit2D(Collider2D other) 
 	{
-		print ("OnCollision");
+		bExited = true;
 	}
 
-	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		print("bam");
+		if (!bExited)
+			return;
+
+		bExited = false;
+
+		// IMPORTANT: note if animator is in same object as collider for player then this will keep triggering
+
+		nCount++;
+		print ("triggered" + nCount);
+
 		// create funny camera effect by removing lock and remembering in player prefs
 
 		// freeze player
-		characterMotor = GameObject.FindWithTag("Player").GetComponent<CharacterMotor>();
+		characterMotor = GameObject.FindWithTag("Player").GetComponent<PlatformerCharacter2D>();
+		if (!characterMotor)
+		{
+			print ("Error, cannot get character motor");
+		}
 		StartCoroutine (FreezeMovement());
 
 		// set position slightly above warper and in front of player
@@ -72,12 +88,12 @@ public class WarpEffect : MonoBehaviour {
 	IEnumerator FreezeMovement()
 	{
 		if (characterMotor != null)
-			characterMotor.canControl = false;
+			characterMotor.canMove = false;
 
 		yield return new WaitForSeconds(effectDuration);
 
 		if (characterMotor != null)
-			characterMotor.canControl = true;
+			characterMotor.canMove = true;
 	}
 	
 

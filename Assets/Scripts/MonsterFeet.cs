@@ -8,8 +8,8 @@ public class MonsterFeet : MonoBehaviour
 	private eDirection m_direction = eDirection.dirStationary;
 
 	// start/stop  position for horizontal and vertical movemenet
-	private float m_startPositionX = 0.0f;
-	private float m_startPositionY = 0.0f;
+	public float m_startPositionX = 0.0f;
+	public float m_startPositionY = 0.0f;
 	public float m_stopPositionX = 0.0f;
 	public float m_stopPositionY = 0.0f;
 

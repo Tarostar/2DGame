@@ -5,10 +5,11 @@ public class Checkpoint : MonoBehaviour {
 
 	public Transform spawnPoint;
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
 		{
+			print ("spawnPoint set");
 			// set new spawnpoint
 			spawnPoint.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 			// store spawn point between game sessions and levels

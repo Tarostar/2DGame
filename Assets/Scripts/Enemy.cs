@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour 
 {
-	public bool m_bStomp = false;
+	public bool m_bDead = false;
+	public bool m_bFalling = false;
 
 	// Use this for initialization
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!m_bStomp && other.tag == "Player")
+		if (!m_bDead && other.tag == "Player")
 		{
 			Destroy (other.gameObject);
 
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour
 	private void CreateNewPlayer()
 	{
 		Transform spawnPoint = GameObject.FindWithTag("Respawn").transform;
-		GameObject newPlayer = Instantiate(Resources.Load("Player"), spawnPoint.position, Quaternion.identity) as GameObject;
+		GameObject newPlayer = Instantiate(Resources.Load("Spaceman"), spawnPoint.position, Quaternion.identity) as GameObject;
 		if (newPlayer == null)
 		{
 			// TODO: better error handling
@@ -36,13 +37,15 @@ public class Enemy : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if (m_bStomp)
+		if (m_bDead && !m_bFalling)
 		{
+			m_bFalling = true;
+
 			transform.Translate(0, -1.0f, 1.0f);
 			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
 			// stop movement
 			gameObject.GetComponent<MonsterFeet>().Kill ();
-			m_bStomp = false;
+
 			StartCoroutine (Fall());
 		}
 	}
