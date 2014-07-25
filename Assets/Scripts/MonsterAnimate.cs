@@ -39,12 +39,12 @@ public class MonsterAnimate : MonoBehaviour {
 				if (monsterFeet.ReverseX() && eMoving != eMonsterDir.left)
 				{
 					eMoving = eMonsterDir.left;
-					animateTexture.rowNumber = 1;
+					animateTexture.rowNumber = 2;
 				}
 				else if (!monsterFeet.ReverseX() && eMoving != eMonsterDir.right)
 				{
 					eMoving = eMonsterDir.right;
-					animateTexture.rowNumber = 2;
+					animateTexture.rowNumber = 1;
 				}
 			}
 
