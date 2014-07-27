@@ -15,7 +15,7 @@ As this was an experiment I don't expect anyone to actually play it!
 
 However, if you insist then be prepared for some really bad game design and lots of weirdness as learning and experimenting was the priority. The most annoying being that the viewport is so close that you will struggle to see much around you, which means that you will not always see the next moving platform or where to go. Makes for a really punishing game and if you like frustrating experimental exploration by jumping around and probably dying a lot then you might actually like that.
 
-The sticking to the platforms is also a bug that I decided to call a feature, so you can cling to platforms even if you fail to jump on.
+The way that you stick to the platform edges is a bug that I decided to call a feature, so you can cling to platforms even if you fail to jump on.
 
 There are 3 levels. To enter the door to each level press the "w" or "up" key. 
 
@@ -26,7 +26,7 @@ The first has three spawn points and enemies roaming about that will kill you if
 
 # Level 2
 
-No spoilers here, but basically you need to warp yourself and then return out where you came from and back down to the beginning.
+Small spoilers here, but basically you need to warp yourself and then return out where you came from and back down to the beginning.
 
 # Level 3
 
